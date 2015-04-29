@@ -14,7 +14,7 @@ if (isguestuser()) {
 }
 
 $courseid = $_GET["courseid"];
-require_course_login($courseid, true); // was ist mit Kursen die ohne Einschreibpflicht sind?
+require_course_login($courseid, true);
 // Set up page.
 $PAGE->set_context(context_system::instance());
 
@@ -23,7 +23,7 @@ $title = get_string('criterion_information', 'filter_pdfcheck');
 $bedingung = array(
     'id'=>$courseid
 );
-$course = $DB->get_record('course', $bedingung, '*', MUST_EXIST); // enspricht $COURSE
+$course = $DB->get_record('course', $bedingung, '*', MUST_EXIST);
 $PAGE->set_heading($course->fullname);
 $PAGE->set_title($course->shortname.': '.$title);
 $PAGE->set_pagelayout('incourse');
@@ -37,6 +37,8 @@ $criterea = getAllCheckCriteriaNames();
 foreach($criterea as $key => $value){
     $criterea[$key] = $value . ' ['.$key.']';
 }
+
+// print information to all criteria 
 
 //table of content
 echo '<h1><a name="contenttable">' . get_string('content', 'filter_pdfcheck') . '</a></h1>';

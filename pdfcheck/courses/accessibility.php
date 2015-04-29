@@ -112,7 +112,7 @@ function write_table_for_course_files(){
             $tests = get_test_resulte($value, $file_path['file_path']);
             
             
-            //#ANFANG: teile Array mit Kriterien in Array für Ampel (ja/nein) und Sonstige (sonstige Werte, die ausgegeben werden)
+            //#START: divide array for first light signal (yes/no) and second others (criteria with other values that only printed)
             $get = getCheckCriterionNamesAndType();
             $crit4light = array();
             $critN4light = array();
@@ -122,7 +122,7 @@ function write_table_for_course_files(){
                 else
                     $critN4light[$key] = $tests[$key];
             }
-            #ENDE
+            //#END
             
             $crit4light = delete_criteria($crit4light);
             $critN4light = delete_criteria($critN4light);
@@ -187,7 +187,12 @@ function write_table_for_course_files(){
 }
 
 
-
+/**
+ * Switch 1 or 0 to yes or no and gives link to no
+ * @param $crit - criterion to switch
+ * @param $critname - identifier of criterion ($crit)
+ * @return String includes html
+**/
 function getYesNoByCrit($crit, $critname){
     global $course;
     $courseid = $course->id;
@@ -211,9 +216,9 @@ function getYesNoByCrit($crit, $critname){
 }
 
 /**
- * Berechnet den Wert der Ampel (grün, gelb, rot) eines Dokumentes
- * @param $testresult - das Resultat der Prüfung des Dokumentes
- * @return Gibt einen String zurück (enthält HTML-Code mit Bild-Datei)
+ * get the light signal to a document
+ * @param $testresult - result of criteria of a document
+ * @return String includes html (light signal link)
  **/
 function generate_light($testresult){
     $lightVal=50;

@@ -4,6 +4,7 @@ require_once("$CFG->dirroot/user/profile/lib.php");
 global $USER;
 $courseid = $_GET["courseid"];
 
+// saves changes to the user profile
 if(isset($_POST) && !empty($_POST)){
     $theuser = clone($USER);
     profile_load_data($theuser);

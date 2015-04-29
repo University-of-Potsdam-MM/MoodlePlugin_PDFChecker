@@ -10,9 +10,9 @@ $courseid = $_GET["courseid"];
 require_course_login($courseid, true);
 
 /**
- * Entfernt Kriterien, die in den Einstellungen deakiviert wurden
- * @param $criteria - als Array, in dem alle Kriterien stehen
- * @return Gibt ein Array mit Kriterien zurück, die auch angezeigt werden sollen
+ * delete all criteria which are deactivated in user profile 
+ * @param $criteria (array) - includes all criteria
+ * @return an array with all activated criteria
  */
 function delete_criteria($criteria){
     GLOBAL $USER;

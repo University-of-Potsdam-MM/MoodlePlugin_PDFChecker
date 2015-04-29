@@ -19,7 +19,7 @@ $title = get_string('settings', 'filter_pdfcheck');
 $bedingung = array(
     'id'=>$courseid
 );
-$course = $DB->get_record('course', $bedingung, '*', MUST_EXIST); // enspricht $COURSE
+$course = $DB->get_record('course', $bedingung, '*', MUST_EXIST);
 $PAGE->set_heading($course->fullname);
 $PAGE->set_title($course->shortname.': '.$title);
 $PAGE->set_pagelayout('incourse');
@@ -41,6 +41,7 @@ foreach($theuserarray as $key => $val){
        $userprofile[str_replace((array)$finde,(array)'',$key)] =  $theuserarray[$key];
 }
 
+// prints checkboxes with all information form profile
 $criterea = getAllCheckCriteriaNames();
 foreach($criterea as $key => $value){
     if($userprofile[str_replace((array)'_',(array)'',$key)] == "1"){
