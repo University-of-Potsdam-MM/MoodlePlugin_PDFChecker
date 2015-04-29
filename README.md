@@ -22,3 +22,5 @@ The name can be free and should be chosen according to the target group.
 "Save changes" specifies the profile field.
 This procedure must be repeated for all the criteria.
 Most recently, a check box to select the list view must be added. To do this proceed as the criteria, select as "short name" but "pdflistortable". "name" can be chosen freely again. Important: Here for "Checked by default" "No" must be selected when you create it!
+
+Also see "README_Adding_Criteria.txt" for adding new criterions.
